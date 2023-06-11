@@ -1,0 +1,31 @@
+<div class="multiselect-container">
+    <div class="selected-values" *ngIf="selectedOptions.length!=0">
+      <div class="selected-value" *ngFor="let option of selectedOptions">
+        {{ option }}<span (click)="deleteOption(option)" style="cursor: pointer;">×</span>
+      </div>
+    </div>
+    <div class="dropdown">
+      <input
+        type="button"
+        class="dropdown-input"
+        value="~Choose A Fruits~"
+        (click)="toggleDropdown()"
+      />
+      <div class="dropdown-options" *ngIf="isDropdownOpen">
+        <div class="option" *ngFor="let option of options">
+          <input
+            type="checkbox"
+            [checked]="isSelected(option)"
+            (change)="toggleOption(option)"
+            [disabled]="selectedOptions.length==3"
+          />
+          {{ option }}
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
